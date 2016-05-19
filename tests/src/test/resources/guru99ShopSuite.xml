@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">
+    <test name="guru99Shop">
+        <classes>
+            <class name="Guru99Shop.VerifySort"/>
+            <class name="Guru99Shop.AddToCart1000Products"/>
+            <class name="Guru99Shop.PriceCompare"/>
+        </classes>
+    </test>
+</suite>
