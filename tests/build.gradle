@@ -10,3 +10,7 @@ dependencies{
     compile 'org.seleniumhq.selenium:htmlunit-driver:2.20'
 
 }
+
+test{
+    useTestNG()
+}
