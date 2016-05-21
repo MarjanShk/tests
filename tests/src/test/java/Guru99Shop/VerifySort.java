@@ -1,7 +1,6 @@
 package Guru99Shop;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,7 +23,7 @@ public class VerifySort extends Base {
         sortBy.selectByVisibleText("Name");
         //sortBy.selectByVisibleText("Price");
         List<String> productsNames = new ArrayList<>();
-        for (WebElement p : products) {
+        for (WebElement p : this.productsNames) {
             productsNames.add(p.getText());
         }
         List<String> productsNamesSorted = new ArrayList<>(productsNames);

@@ -2,7 +2,6 @@ package Guru99Shop;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,7 +16,7 @@ public class PriceCompare extends Base {
         Random r = new Random();
         int number = r.nextInt(3);
         mobile.click();
-        WebElement phone = productsInfo.get(number);
+        WebElement phone = products.get(number);
         String priceFromMainPage = phone.
                 findElement(By.cssSelector("span[id^='product']")).getText();
         phone.findElement(By.cssSelector(".product-name")).click();

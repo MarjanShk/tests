@@ -3,6 +3,7 @@ package Guru99Shop;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -23,9 +24,11 @@ public class Base {
     @FindBy(xpath = "//select[@title='Sort By']")
     WebElement select;
     @FindBy(xpath = "//h2[@class='product-name']")
-    List<WebElement> products;
+    List<WebElement> productsNames;
+    @FindBy(css = ".product-name")
+    WebElement productsName;
     @FindBy(css = ".product-info")
-    List<WebElement> productsInfo;
+    List<WebElement> products;
     @FindBy(css = ".product-essential span[id^='product']")
     WebElement priceFromThisProductDetails;
     By addToCartButton = By.cssSelector("button[title='Add to Cart']");
@@ -40,11 +43,20 @@ public class Base {
     WebElement spanErrorMessage;
     @FindBy(xpath = "//span[text()='Empty Cart']")
     WebElement emptyCartButton;
+    By compare = By.cssSelector(".link-compare");
+    @FindBy(css = ".success-msg span")
+    WebElement successMsg;
+    @FindBy(css = "ol#compare-items")
+    WebElement compareItems;
+    @FindBy(xpath = "//*[text()='Compare']")
+    WebElement compareSelectedProducts;
+    @FindBy(xpath = "//span[text()='Close Window']")
+    WebElement closeCompareWindow;
 
     @BeforeClass
     //@BeforeSuite
     public void setUp() {
-        wd = new FirefoxDriver();
+        wd = new ChromeDriver();
         wd.get("http://live.guru99.com");
         PageFactory.initElements(wd, this);
         wd.manage().window().maximize();
@@ -53,7 +65,7 @@ public class Base {
     @AfterClass
     //@AfterSuite
     public void tearDown() {
-        wd.quit();
+        // wd.quit();
     }
 
 }

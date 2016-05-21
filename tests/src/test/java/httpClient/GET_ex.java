@@ -1,6 +1,5 @@
 package httpClient;
 
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -21,7 +20,7 @@ public class GET_ex {
         System.out.println(statusCode);
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
         String res = reader.readLine();
-        while (reader.readLine()!=null){
+        while (reader.readLine() != null) {
             res += reader.readLine();
         }
         reader.close();

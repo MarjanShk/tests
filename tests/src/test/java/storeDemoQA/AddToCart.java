@@ -3,6 +3,7 @@ package storeDemoQA;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -55,7 +56,7 @@ public class AddToCart {
 
     @BeforeClass
     public void setUp() {
-        wd = new FirefoxDriver();
+        wd = new ChromeDriver();
         wd.get("http://store.demoqa.com/");
         wd.manage().window().maximize();
         PageFactory.initElements(wd, this);
