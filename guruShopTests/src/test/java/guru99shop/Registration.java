@@ -17,8 +17,12 @@ public class Registration extends Base {
     public void testRegistration() {
         long r = new Random().nextLong();
         account.click();
+        Actions actions = new Actions(wd);
         actions.moveToElement(register).release(register).click().perform();
+        Assert.assertEquals(wd.findElement(By.tagName("h1")).getText(), "CREATE AN ACCOUNT");
         registerSubmit.click();
+        List<WebElement> requiredInputs = wd.findElements(By.cssSelector(".input-text.required-entry.validation-failed"));
+        List<WebElement> errorMessages = wd.findElements(By.className("validation-advice"));
         for (WebElement input : requiredInputs) {
             Assert.assertEquals(input.getCssValue("border-color"), "rgb(223, 40, 10)");
         }
@@ -33,7 +37,9 @@ public class Registration extends Base {
         password1.sendKeys("123456");
         password2.sendKeys("123456");
         registerSubmit.click();
+        Assert.assertEquals(wd.findElement(By.cssSelector(".success-msg span")).getText(),
                 "Thank you for registering with Main Website Store.");
+        Assert.assertEquals(wd.findElement(By.cssSelector(".welcome-msg strong")).getText(),
                 "Hello, " + firstnameData + " " + lastnameData + "!");
 
     }
