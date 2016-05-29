@@ -27,7 +27,7 @@ public class AddToCart1000Products extends Base {
         qty.sendKeys("1000");
         updateQTY.click();
         Assert.assertTrue(pError.getText().contains("* The maximum quantity allowed for purchase is 500."));
-        Assert.assertEquals(spanErrorMessage.getText(), "Some of the productsNames cannot be ordered in requested quantity.");
+        Assert.assertEquals(spanErrorMessage.getText(), "Some of the products cannot be ordered in requested quantity.");
         emptyCartButton.click();
         Assert.assertEquals(wd.findElement(By.tagName("h1")).getText(), "SHOPPING CART IS EMPTY");
     }
