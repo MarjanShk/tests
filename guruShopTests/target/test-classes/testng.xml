@@ -3,9 +3,8 @@
 <suite name="guruShop" verbose="5">
   <test name="Test1">
     <classes>
-      <class name="guru99shop.Registration"/>
       <class name="guru99shop.CompareProductsTest"/>
-      <class name="guru99shop.VerifySort"/>
+      <class name="guru99shop.Registration"/>
     </classes>
   </test>  
 </suite>

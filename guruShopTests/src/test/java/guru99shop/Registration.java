@@ -18,13 +18,13 @@ public class Registration extends Base {
         long r = new Random().nextLong();
         account.click();
         Actions actions = new Actions(wd);
-        actions.moveToElement(register).release(register).click().perform();
+        actions.moveToElement(register).click().perform();
         Assert.assertEquals(wd.findElement(By.tagName("h1")).getText(), "CREATE AN ACCOUNT");
         registerSubmit.click();
         List<WebElement> requiredInputs = wd.findElements(By.cssSelector(".input-text.required-entry.validation-failed"));
         List<WebElement> errorMessages = wd.findElements(By.className("validation-advice"));
         for (WebElement input : requiredInputs) {
-            Assert.assertEquals(input.getCssValue("border-color"), "rgb(223, 40, 10)");
+            Assert.assertEquals(input.getCssValue("border-top-color"), "rgba(223, 40, 10, 1)");
         }
         for (WebElement er : errorMessages) {
             Assert.assertEquals(er.getText(), "This is a required field.");
